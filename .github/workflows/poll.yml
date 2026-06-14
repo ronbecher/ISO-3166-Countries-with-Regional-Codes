@@ -1,0 +1,32 @@
+name: poll-yad2
+
+# NOTE: GitHub only runs workflows that live at the REPO ROOT in
+# `.github/workflows/`. Because this project sits in the `yad2-rental-tracker/`
+# subdirectory, copy (or symlink) this file to `<repo-root>/.github/workflows/poll.yml`
+# to actually schedule it. The paths below are written relative to the repo root
+# and already account for the subdirectory.
+
+on:
+  schedule:
+    - cron: "*/30 * * * *"   # every 30 min (GH may delay several minutes under load)
+  workflow_dispatch: {}        # manual trigger for testing
+
+jobs:
+  poll:
+    runs-on: ubuntu-latest
+    defaults:
+      run:
+        working-directory: yad2-rental-tracker
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+      - run: pip install -r scraper/requirements.txt
+      - run: python -m playwright install chromium    # for fallback path
+      - run: python scraper/run.py
+        env:
+          SUPABASE_URL:         ${{ secrets.SUPABASE_URL }}
+          SUPABASE_SERVICE_KEY: ${{ secrets.SUPABASE_SERVICE_KEY }}
+          TELEGRAM_BOT_TOKEN:   ${{ secrets.TELEGRAM_BOT_TOKEN }}
+          TELEGRAM_CHAT_ID:     ${{ secrets.TELEGRAM_CHAT_ID }}
