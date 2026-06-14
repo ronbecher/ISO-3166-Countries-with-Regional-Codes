@@ -1,0 +1,145 @@
+:root {
+  --bg: #0f1115;
+  --panel: #171a21;
+  --border: #262b35;
+  --text: #e7e9ee;
+  --muted: #8b93a3;
+  --accent: #4f8cff;
+  --drop: #16361f;
+  --drop-border: #2e8b57;
+  --relist: #3a2a12;
+  --relist-border: #d39327;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  background: var(--bg);
+  color: var(--text);
+  font: 14px/1.45 system-ui, -apple-system, Segoe UI, Roboto, sans-serif;
+}
+
+main {
+  max-width: 1280px;
+  margin: 0 auto;
+  padding: 24px 16px 64px;
+}
+
+.page-header h1 {
+  margin: 0 0 4px;
+}
+
+.muted {
+  color: var(--muted);
+}
+
+.toolbar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin: 20px 0 10px;
+  gap: 12px;
+}
+
+.toolbar .count {
+  font-weight: 600;
+}
+
+select {
+  background: var(--panel);
+  color: var(--text);
+  border: 1px solid var(--border);
+  border-radius: 6px;
+  padding: 4px 8px;
+}
+
+.table-wrap {
+  overflow-x: auto;
+  border: 1px solid var(--border);
+  border-radius: 10px;
+}
+
+table {
+  border-collapse: collapse;
+  width: 100%;
+  min-width: 1000px;
+}
+
+th,
+td {
+  padding: 8px 10px;
+  text-align: start;
+  border-bottom: 1px solid var(--border);
+  white-space: nowrap;
+}
+
+th {
+  background: var(--panel);
+  position: sticky;
+  top: 0;
+  font-weight: 600;
+  color: var(--muted);
+}
+
+tbody tr:hover {
+  background: #1c2027;
+}
+
+tr.dropped {
+  background: var(--drop);
+  box-shadow: inset 3px 0 0 var(--drop-border);
+}
+
+tr.relisted {
+  background: var(--relist);
+  box-shadow: inset 3px 0 0 var(--relist-border);
+}
+
+tr.dropped.relisted {
+  background: linear-gradient(90deg, var(--relist), var(--drop));
+}
+
+.thumb {
+  width: 56px;
+  height: 42px;
+  object-fit: cover;
+  border-radius: 5px;
+}
+
+.delta {
+  color: #5bd682;
+  font-weight: 600;
+}
+
+a {
+  color: var(--accent);
+}
+
+.legend {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-top: 18px;
+  color: var(--muted);
+}
+
+.swatch {
+  width: 16px;
+  height: 16px;
+  border-radius: 4px;
+  display: inline-block;
+  margin-left: 14px;
+}
+
+.swatch.dropped {
+  background: var(--drop);
+  border: 1px solid var(--drop-border);
+}
+
+.swatch.relisted {
+  background: var(--relist);
+  border: 1px solid var(--relist-border);
+}

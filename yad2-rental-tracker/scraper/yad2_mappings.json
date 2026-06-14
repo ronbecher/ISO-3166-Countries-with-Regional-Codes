@@ -1,0 +1,19 @@
+{
+  "_README": [
+    "Yad2 uses INTERNAL NUMERIC CODES for property types in its JSON feed.",
+    "These values MUST be confirmed against the live site (see README, section 'Resolving Yad2 IDs').",
+    "They are placed here as DATA so they can be corrected without touching code.",
+    "How to verify: open a Yad2 rental search in a browser, tick a single property",
+    "type in the filter, and read the 'property' query param value off the network tab.",
+    "The codes below reflect commonly-observed Yad2 values but are NOT guaranteed current."
+  ],
+  "verified": false,
+  "feed_url": "https://gw.yad2.co.il/realestate-feed/rent/map",
+  "autocomplete_url": "https://gw.yad2.co.il/address-autocomplete/realestate/v2",
+  "property_type_codes": {
+    "private_house": 5,
+    "cottage": 5,
+    "penthouse": 6,
+    "roof_apartment": 33
+  }
+}
