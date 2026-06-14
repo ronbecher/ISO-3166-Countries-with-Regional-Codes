@@ -95,6 +95,24 @@ interface.
 
 ---
 
+## Provisioned infrastructure
+
+A live Supabase project has been provisioned for this tracker:
+
+- **Project ref:** `gjlhmgfshumsskrnsxfi` (org "Ron's Becher Projects", region `eu-central-1`)
+- **API URL:** `https://gjlhmgfshumsskrnsxfi.supabase.co`
+- The `listings` table, indexes, anon-read RLS policy, and the Realtime
+  publication are already applied (`supabase/schema.sql`).
+- The public anon key is baked into `dashboard/.env.production` (browser-safe;
+  RLS restricts access). For the **scraper** you still need the **service-role**
+  key — copy it from the Supabase dashboard into `SUPABASE_SERVICE_KEY`.
+
+**Vercel:** deployment could not be automated from the build environment (no
+Vercel token + egress to vercel.com is blocked). To deploy: import this repo in
+Vercel, set the **Root Directory** to `yad2-rental-tracker/dashboard`, and push —
+the `NEXT_PUBLIC_*` env vars are already in `.env.production`, so no extra config
+is needed. (Or run `vercel deploy` from `dashboard/` with the CLI authenticated.)
+
 ## Setup
 
 ### 1. Supabase
