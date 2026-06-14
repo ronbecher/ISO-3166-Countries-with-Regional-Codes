@@ -1,0 +1,20 @@
+{
+  "deal_type": "rent",
+  "filters": {
+    "price_max": 20000,
+    "rooms_min": 4,
+    "rooms_max": 5,
+    "size_min_sqm": 120,
+    "property_types": ["private_house", "cottage", "penthouse", "roof_apartment"],
+    "parking_required": true,
+    "floor": null,
+    "entry_date": null,
+    "include_agencies": true
+  },
+  "targets": [
+    { "city": "הרצליה",     "neighborhoods": ["הרצליה פיתוח", "נוף ים"] },
+    { "city": "כפר שמריהו", "neighborhoods": [] },
+    { "city": "רמת השרון",  "neighborhoods": ["גולן"] }
+  ],
+  "poll_minutes": 30
+}
