@@ -13,7 +13,11 @@ on:
 
 jobs:
   poll:
-    runs-on: ubuntu-latest
+    # Runs on YOUR self-hosted runner (residential IP) to get past Yad2's
+    # Radware/ShieldSquare bot manager, which blocks GitHub's datacenter IPs.
+    # Register a runner: repo Settings -> Actions -> Runners -> New self-hosted runner.
+    # Scheduled runs only fire while the runner is online.
+    runs-on: self-hosted
     defaults:
       run:
         working-directory: yad2-rental-tracker
